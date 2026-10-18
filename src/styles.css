@@ -1,1 +1,36 @@
-/* You can add global styles to this file, and also import other style files */
+body{
+    background-color: #f8f7f4;
+    color: #1e293b;
+}
+
+p{
+    color: #64748b;
+}
+
+form{
+    width: 600px;
+}
+
+@media (max-width: 1300px) {
+    form{
+        width: 300px;
+    }
+}
+
+@media (min-width: 371px) and (max-width: 1300px) {}
+
+@media (min-width: 576px) and (max-width: 1300px) {
+    form{
+        width: 400px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1300px) {}
+
+@media (min-width: 992px) and (max-width: 1300px) {
+    form{
+        width: 500px;
+    }
+}
+
+@media (min-width: 1181px) and (max-width: 1300px) {}
