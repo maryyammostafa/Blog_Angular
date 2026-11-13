@@ -8,9 +8,10 @@
             <a class="btn px-sm-4 py-sm-2" style="background: #1e293b; color: #fff;" routerLink="/posts/addPost">Add Post</a>
         </div>
         @for (post of posts(); track post.id) {
-            <app-post [post]="post" [operations]="true"/>
+            <app-post [post]="post" [operations]="true" (postDeleted)="load()" (postForceDeleted)="load()" (postRestored)="load()"/>
         } @empty {
             <p class='alert text-danger w-100 text-center fs-2 mt-5'>No posts available yet.</p>
         }
+        <app-pagination [currentPage]="page()" [lastPage]="lastPage()" (pageChange)="goToPage($event)" />
     </div>
 </div>

@@ -1,32 +1,29 @@
 <div class="add my-5">
     <div class="container">
         <h2 class="fs-1 fw-bold mb-4 text-center">Add Post</h2>
-        <!-- @session('success')
-            <p class='alert text-success text-center fs-4 w-100'>{{ $value }}</p>
-        @endsession -->
-        <form class="m-auto" action="" method="POST">
+        <form class="m-auto" (ngSubmit)="addPost()" method="POST">
             <div class="box mb-2">
                 <label for="AuthorName" class="w-100 mb-1">Author Name :</label>
-                <input type="text" class="w-100 form-control" name="authorName" id="AuthorName" value="">
-                <!-- @error('authorName')
-                    <p class='alert text-danger w-100 m-0 ms-1 mt-1 p-0'>{{ $message }}</p>
-                @enderror -->
+                <input type="text" [(ngModel)]="authorName" class="w-100 form-control" name="authorName" id="AuthorName">
+                @if (error()['authorName'] ; as message) {
+                    <p class='alert text-danger w-100 m-0 ms-1 mt-1 p-0'>{{ message }}</p>
+                }
             </div>
             <div class="box mb-2">
                 <label for="Title" class="w-100 mb-1">Title :</label>
-                <input type="text" class="w-100 form-control" name="title" id="Title" value="">
-                <!-- @error('title')
-                    <p class='alert text-danger w-100 m-0 ms-1 mt-1 p-0'>{{ $message }}</p>
-                @enderror -->
+                <input type="text" [(ngModel)]="title" class="w-100 form-control" name="title" id="Title">
+                @if (error()['title'] ; as message) {
+                    <p class='alert text-danger w-100 m-0 ms-1 mt-1 p-0'>{{ message }}</p>
+                }
             </div>
             <div class="box mb-2">
                 <label for="Body" class="w-100 mb-1">Body :</label>
-                <textarea class="w-100 form-control" name="body" id="Body" rows="5" style="resize: none;"></textarea>
-                <!-- @error('body')
-                    <p class='alert text-danger w-100 m-0 ms-1 mt-1 p-0'>{{ $message }}</p>
-                @enderror -->
+                <textarea class="w-100 form-control" [(ngModel)]="body" name="body" id="Body" rows="5" style="resize: none;"></textarea>
+                @if (error()['body'] ; as message) {
+                    <p class='alert text-danger w-100 m-0 ms-1 mt-1 p-0'>{{ message }}</p>
+                }
             </div>
-            <button class="btn w-100 py-2 mt-3" style="background: #1e293b; color: #fff;">Add</button>
+            <button class="btn w-100 py-2 mt-3" [disabled]="save()" style="background: #1e293b; color: #fff;">Add</button>
         </form>
     </div>
 </div>

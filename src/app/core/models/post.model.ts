@@ -1,5 +1,5 @@
 export interface Post {
-    id: string;
+    id: number;
     author_name: string;
     title: string;
     body: string;
@@ -9,7 +9,14 @@ export interface Post {
 }
 
 export interface PostData {
+    authorName: string;
     title: string;
     body: string;
-    author_name: string;
+}
+
+export interface Pagination<T>{
+    data: T[];
+    current_page: number;
+    last_page: number;
+    total: number;
 }

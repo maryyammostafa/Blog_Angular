@@ -3,26 +3,26 @@
         <div class="col-md-5 col-lg-4 col-xl-3">
             <div class="item">
                 <img src="images/blog.webp" class="w-100 rounded" alt="">
-                <p class="text-center mb-0 mt-2">{{ post.author_name }}</p>
+                <p class="text-center mb-0 mt-2">{{ post().author_name }}</p>
             </div>
         </div>
         <div class="col-md-7 col-lg-8 col-xl-9">
             <div class="item mt-3 mt-md-0 ms-md-5 ps-lg-4 position-relative">
-                @if (post.deleted_at) {
+                @if (post().deleted_at) {
                     <span class="badge text-bg-danger position-absolute" style="top: 5px; right: 0;">Deleted</span>
                 }
-                <h3>{{ post.title }}</h3>
-                <h6 style="color: #c59d5f;">{{ post.created_at | date:'MMM dd, yyyy, h:mm a' }}</h6>
-                <p class="w-75">{{ post.body }}</p>
-                @if (operations) {
+                <h3>{{ post().title }}</h3>
+                <h6 style="color: #c59d5f;">{{ post().created_at | date:'MMM dd, yyyy, h:mm a' }}</h6>
+                <p class="w-75">{{ post().body }}</p>
+                @if (operations()) {
                     <div class="buttons mt-4">
-                        @if (post.deleted_at){
-                            <button class="btn btn-primary me-1">Restore</button>
+                        @if (post().deleted_at){
+                            <button class="btn btn-primary me-1" (click)="restorePost(post())">Restore</button>
                         } @else {
-                            <button class="btn btn-info text-light me-1">Edit</button>
-                            <button class="btn btn-warning text-light me-1">Delete</button>
+                            <a class="btn btn-info text-light me-1" [routerLink]="['/posts/editPost', post().id]" [state]="{ post: post() }">Edit</a>
+                            <button class="btn btn-warning text-light me-1" (click)="deletePost()">Delete</button>
                         }
-                        <button class="btn btn-danger">Force Delete</button>
+                        <button class="btn btn-danger" (click)="forceDeletePost(post())">Force Delete</button>
                     </div>
                 }
             </div>

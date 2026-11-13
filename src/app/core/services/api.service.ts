@@ -1,19 +1,17 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Post } from '../models/post.model';
-import { PostData } from '../models/post.model';
+import { Post, PostData, Pagination } from '../models/post.model';
 
 @Injectable({
     providedIn: 'root'
 })
 export class Api {
     private http = inject(HttpClient);
+    private baseUrl = 'http://myblogsystem.atwebpages.com/api';
 
-    private baseUrl = 'http://127.0.0.1:8000/api';
-
-    getPosts(): Observable<Post[]> {
-        return this.http.get<Post[]>(`${this.baseUrl}/posts`);
+    getPosts(page: number): Observable<Pagination<Post>> {
+        return this.http.get<Pagination<Post>>(`${this.baseUrl}/posts`, { params: {page} });
     }
 
     addPost(data: PostData): Observable<Post> {

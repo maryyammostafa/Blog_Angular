@@ -11,6 +11,16 @@ form{
     width: 600px;
 }
 
+ul.pagination .page-item .page-link{
+    color: #1e293b;
+    box-shadow: none;
+}
+ul.pagination .page-item.active .page-link{
+    color: #fff;
+    background-color: #1e293b;
+    border: 1px solid #e5e7eb;
+}
+
 @media (max-width: 1300px) {
     form{
         width: 300px;

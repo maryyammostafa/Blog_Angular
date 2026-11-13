@@ -1,1 +1,29 @@
-<p>edit-post works!</p>
+<div class="edit my-5">
+    <div class="container">
+        <h2 class="fs-1 fw-bold mb-4 text-center">Edit Post</h2>
+        <form class="m-auto" (ngSubmit)="editPost()">
+            <div class="box mb-2">
+                <label for="AuthorName" class="w-100 mb-1">Author Name :</label>
+                <input type="text" [(ngModel)]="authorName" class="w-100 form-control" name="authorName" id="AuthorName">
+                @if (error()['authorName']; as message) {
+                    <p class="alert text-danger w-100 m-0 ms-1 mt-1 p-0">{{ message }}</p>
+                }
+            </div>
+            <div class="box mb-2">
+                <label for="Title" class="w-100 mb-1">Title :</label>
+                <input type="text" [(ngModel)]="title" class="w-100 form-control" name="title" id="Title">
+                @if (error()['title']; as message) {
+                    <p class="alert text-danger w-100 m-0 ms-1 mt-1 p-0">{{ message }}</p>
+                }
+            </div>
+            <div class="box mb-2">
+                <label for="Body" class="w-100 mb-1">Body :</label>
+                <textarea class="w-100 form-control" [(ngModel)]="body" name="body" id="Body" rows="5" style="resize: none;"></textarea>
+                @if (error()['body']; as message) {
+                    <p class="alert text-danger w-100 m-0 ms-1 mt-1 p-0">{{ message }}</p>
+                }
+            </div>
+            <button class="btn w-100 py-2 mt-3" [disabled]="save()" style="background: #1e293b; color: #fff;">Edit</button>
+        </form>
+    </div>
+</div>
