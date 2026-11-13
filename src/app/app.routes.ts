@@ -9,6 +9,6 @@ export const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'posts', component: PostsComponent },
     { path: 'posts/addPost', component: AddPostComponent },
-    { path: 'posts/editPost/:id', component: EditPostComponent },
+    { path: 'posts/editPost', component: EditPostComponent },
     { path: '**', component: NotFoundComponent }
 ];

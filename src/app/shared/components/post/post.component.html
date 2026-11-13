@@ -19,7 +19,7 @@
                         @if (post().deleted_at){
                             <button class="btn btn-primary me-1" (click)="restorePost(post())">Restore</button>
                         } @else {
-                            <a class="btn btn-info text-light me-1" [routerLink]="['/posts/editPost', post().id]" [state]="{ post: post() }">Edit</a>
+                            <a class="btn btn-info text-light me-1" [routerLink]="['/posts/editPost']" [state]="{ post: post() }">Edit</a>
                             <button class="btn btn-warning text-light me-1" (click)="deletePost()">Delete</button>
                         }
                         <button class="btn btn-danger" (click)="forceDeletePost(post())">Force Delete</button>
