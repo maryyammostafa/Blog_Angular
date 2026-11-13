@@ -4,21 +4,21 @@
         <form class="m-auto" (ngSubmit)="addPost()" method="POST">
             <div class="box mb-2">
                 <label for="AuthorName" class="w-100 mb-1">Author Name :</label>
-                <input type="text" [(ngModel)]="authorName" class="w-100 form-control" name="authorName" id="AuthorName">
+                <input type="text" [ngModel]="authorName()" (ngModelChange)="authorName.set($event)" class="w-100 form-control" name="authorName" id="AuthorName">
                 @if (error()['authorName'] ; as message) {
                     <p class='alert text-danger w-100 m-0 ms-1 mt-1 p-0'>{{ message }}</p>
                 }
             </div>
             <div class="box mb-2">
                 <label for="Title" class="w-100 mb-1">Title :</label>
-                <input type="text" [(ngModel)]="title" class="w-100 form-control" name="title" id="Title">
+                <input type="text" [ngModel]="title()" (ngModelChange)="title.set($event)" class="w-100 form-control" name="title" id="Title">
                 @if (error()['title'] ; as message) {
                     <p class='alert text-danger w-100 m-0 ms-1 mt-1 p-0'>{{ message }}</p>
                 }
             </div>
             <div class="box mb-2">
                 <label for="Body" class="w-100 mb-1">Body :</label>
-                <textarea class="w-100 form-control" [(ngModel)]="body" name="body" id="Body" rows="5" style="resize: none;"></textarea>
+                <textarea class="w-100 form-control" [ngModel]="body()" (ngModelChange)="body.set($event)" name="body" id="Body" rows="5" style="resize: none;"></textarea>
                 @if (error()['body'] ; as message) {
                     <p class='alert text-danger w-100 m-0 ms-1 mt-1 p-0'>{{ message }}</p>
                 }

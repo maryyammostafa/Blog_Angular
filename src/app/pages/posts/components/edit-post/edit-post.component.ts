@@ -1,4 +1,4 @@
-import { Component, inject, input, Input, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { Api } from '../../../../core/services/api.service';
 import { Router } from '@angular/router';
 import { Post } from '../../../../core/models/post.model';

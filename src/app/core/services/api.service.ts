@@ -8,7 +8,7 @@ import { Post, PostData, Pagination } from '../models/post.model';
 })
 export class Api {
     private http = inject(HttpClient);
-    private baseUrl = 'http://myblogsystem.atwebpages.com/api';
+    private baseUrl = 'https://blog.maryammostafaawad22.workers.dev/api';
 
     getPosts(page: number): Observable<Pagination<Post>> {
         return this.http.get<Pagination<Post>>(`${this.baseUrl}/posts`, { params: {page} });

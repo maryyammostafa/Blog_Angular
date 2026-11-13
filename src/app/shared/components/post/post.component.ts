@@ -1,4 +1,4 @@
-import { Component, inject, input, Input, output, signal } from '@angular/core';
+import { Component, inject, input, output } from '@angular/core';
 import { Post } from '../../../core/models/post.model';
 import { DatePipe } from '@angular/common';
 import { Api } from '../../../core/services/api.service';
